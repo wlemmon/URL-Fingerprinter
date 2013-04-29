@@ -31,17 +31,18 @@ rhino1_7R4.jar
 
 From your projects build.xml file, you can include any of the ant macros. The below example will locate the URL-Fingerprinter macro from the URL-Fingerprinter.jar file.
 
-*   <include>
+```xml
+  <include>
 		<javaresource name="URL-Fingerprinter.xml">
 			<classpath location="${build.lib.dir}/URL-Fingerprinter.jar"/>
 		</javaresource>
 	</include>
-  </blockquote>
 
+```
 
 Next, call the ant macro. Make sure to link it to any external dependencies, i.e., the jars you moved from URL-Fingerprinter's lib/main directory.
 
-  <blockquote>
+```xml
   <URL-Fingerprintize
 		war-temp-dir="${build.dir.webresources}"
 		build-dir="${build.dir}"
@@ -69,7 +70,7 @@ Next, call the ant macro. Make sure to link it to any external dependencies, i.e
 			</fileset>
 		</modify-files>
 	</URL-Fingerprintize>
-  </blockquote>
+```
 
 
 
