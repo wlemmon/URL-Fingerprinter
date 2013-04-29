@@ -72,7 +72,7 @@ Next, call the ant macro. Make sure to link it to any external dependencies, i.e
 	</URL-Fingerprintize>
 ```
 
-Future changes:<br>
+## Future changes:<br>
 Contributors welcome.<br>
 * Convert to maven project
 * Support the editing of JSP and other reference containing resource types.
