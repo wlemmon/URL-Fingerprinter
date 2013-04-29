@@ -13,6 +13,12 @@ Current Extent of reference renaming: <br>
 JS, CSS, HTML.
 Please contribute.
 
+
+## Building
+```sh
+ant run-fullbuild
+```
+
 ## Usage
 
 DISTRIBUTING:
