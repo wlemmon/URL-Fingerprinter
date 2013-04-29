@@ -11,8 +11,6 @@ Output: Cacheable forever resources by browsers. An MD5 hash is put in the filen
 <br>
 Current Extent of reference renaming: <br>
 JS, CSS, HTML.
-Please contribute.
-
 
 ## Building
 ```sh
@@ -74,7 +72,10 @@ Next, call the ant macro. Make sure to link it to any external dependencies, i.e
 	</URL-Fingerprintize>
 ```
 
-
+Future changes:<br>
+Contributors welcome.<br>
+* Convert to maven project
+* Support the editing of JSP and other reference containing resource types.
 
 
 
