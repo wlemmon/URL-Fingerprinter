@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="URL-Fingerprinter" default="usage" basedir=".">
+
+	<description>Automated build for Blue Cloud Ant Tools</description>
+
+	<property name="root.dir" value="${basedir}" />
+	<property name="build.dir.name" value="build" />
+	<property name="build.dir" value="${root.dir}/${build.dir.name}" />
+	<property name="build.dir.src" value="${build.dir}/src" />
+	<property name="build.dir.test" value="${build.dir}/test" />
+	<property name="macro.dir" value="${root.dir}/macros" />
+	<property name="src-dir" value="${root.dir}/src" />
+	<property name="src.tests" value="${root.dir}/test" />
+	<property name="lib.dir" value="${root.dir}/lib" />
+	<property name="lib.dir.test" value="${lib.dir}/test" />
+	<property name="lib.dir.main" value="${lib.dir}/main" />
+	<property name="src-classpath" value="${lib.dir.main}/rhino1_7R4.jar;${lib.dir.main}/commons-io-2.4.jar;${lib.dir.main}/ant.jar" />
+	<property name="test-classpath" value="${src-classpath};${build.dir.src};${lib.dir.test}/junit.jar;${lib.dir.test}/ant-junit.jar;${lib.dir.test}/ant-testutil.jar;${build.dir.test};" />
+	
+	<target name="usage">
+		<echo message="" />
+		<echo message="${ant.project.name} build file" />
+		<echo message="-----------------------------------" />
+		<echo message="" />
+		<echo message="Available targets are:" />
+		<echo message="" />
+		<echo message="Automated Build:" />
+		<echo message="  run-fullbuild      Run full build" />
+		<echo message="" />
+		<echo message="Make and Jar" />
+		<echo message="  jar                Compiles source code and builds JAR file" />
+		<echo message="  jar-src            Builds src jar" />
+		<echo message="" />
+		<echo message="Test" />
+		<echo message="  test               Runs Unit Tests" />
+		<echo message="" />
+	</target>
+	
+	<target name="run-fullbuild" depends="clean, init, jar, jar-src, test" />
+	
+	<target name="test-compile">
+		<javac
+			destdir="${build.dir.test}"
+			srcdir="${src.tests}"
+			classpath="${test-classpath}"
+			includeantruntime="false"
+		/>
+	</target>
+	
+	<target name="test" depends="src-compile, test-compile">
+		
+		<junit printsummary="yes" haltonfailure="yes" >
+			<classpath>
+				
+				<pathelement path="${test-classpath}"/>
+			</classpath>
+
+			<formatter type="plain"/>
+
+			<batchtest fork="yes">
+				<fileset dir="${src.tests}">
+					<include name="**/*Test*.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+	
+	<target name="clean" description="Removes working files" >
+		<delete dir="${build.dir}" />
+	</target>
+	
+	<target name="init" description="Initialize required directory structure and properties">
+		<mkdir dir="${build.dir.src}" />
+		<mkdir dir="${build.dir.test}" />
+	</target>
+	
+	<target name="src-compile">
+		<javac
+			destdir="${build.dir.src}"
+			srcdir="${src-dir}"
+			classpath="${src-classpath}"
+			includeantruntime="false"
+		/>
+	</target>
+	
+	<target name="jar" depends="src-compile">
+	
+		<jar destfile="${build.dir}/URL-Fingerprinter.jar">
+			<fileset dir="${build.dir.src}">
+				<include name="**/*.class" />
+			</fileset>
+			<fileset dir="${macro.dir}">
+				<include name="**/*.xml" />
+			</fileset>
+		</jar>
+	</target>
+	
+	<target name="jar-src">
+		<jar destfile="${build.dir}/URL-Fingerprinter-src.jar">
+			<fileset dir="${src-dir}">
+				<include name="**/*.java" />
+			</fileset>
+			<fileset dir="${macro.dir}">
+				<include name="**/*.xml" />
+			</fileset>
+		</jar>
+	</target>
+	
+	
+</project>

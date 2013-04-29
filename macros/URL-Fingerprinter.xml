@@ -1,0 +1,40 @@
+<project name="bcanttools">
+	<macrodef name="versionize" description="Rename files based on their checksums. This is done for browser caching.">
+		<attribute name="war-temp-dir" description="This is a temporary directory which you construct by copying your deliverable resources from your webapp and 
+		Sencha cmd build directories, as to not modify the files in webapp. You run the versionizer on this directory and create a war file from the results."/>
+		
+		
+		<attribute name="build-dir" description="A directory to store the reference file." default="."/>
+		<attribute name="reference-file" description="A temporary file to map old file names to new file names." default="@{build-dir}/versionizer.properties"/>
+		<attribute name="dependency-classpath" description="The location of filereferencechanger.FileReferenceChanger and its dependencies."/>
+		<element name="hash-files" optional="no"/>
+		<element name="modify-files" optional="no"/>
+		<sequential>
+			<delete file="@{reference-file}" />
+			<for param="file">
+				<hash-files/>
+				<sequential>
+					<var name="chksum" unset="true"/>
+					<checksum file="@{file}" property="chksum" />
+
+					<var name="versionizer.dirname" unset="true"/>
+					<dirname property="versionizer.dirname" file="@{file}"/>
+
+					<var name="versionizer.basefilename" unset="true"/>
+					<basename property="versionizer.basefilename" file="@{file}" suffix="*"/>
+					<move file="@{file}" tofile="${versionizer.dirname}${file.separator}${chksum}-${versionizer.basefilename}" preservelastmodified="true"/>
+
+					<propertyfile file="@{reference-file}">
+						<entry key="@{file}" value="${chksum}-${versionizer.basefilename}"/>
+					</propertyfile>
+
+				</sequential>
+			</for>
+			<taskdef name="filereferencechanger" classname="filereferencechanger.FileReferenceChanger" classpath="@{dependency-classpath}"/>
+			<filereferencechanger replacefilterfile="@{reference-file}" webAppRoot="@{war-temp-dir}">
+				<modify-files/>
+			</filereferencechanger>
+		</sequential>
+	</macrodef>
+	
+</project>
