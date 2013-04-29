@@ -1,8 +1,7 @@
 # URL-Fingerprinter
-
+An ant + Java build tool for URL Fingerprinting / forever caching static resources.
 
 ## Tool Function
-
 Implements URL Fingerprinting as described here: <br>
 Optimize caching: <br>
 https://developers.google.com/speed/docs/best-practices/rules_intro <br>
