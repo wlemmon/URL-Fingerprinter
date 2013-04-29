@@ -30,8 +30,8 @@ commons-io-2.4.jar
 rhino1_7R4.jar
 
 From your projects build.xml file, you can include any of the ant macros. The below example will locate the URL-Fingerprinter macro from the URL-Fingerprinter.jar file.
-  <blockquote>
-  <include>
+
+*   <include>
 		<javaresource name="URL-Fingerprinter.xml">
 			<classpath location="${build.lib.dir}/URL-Fingerprinter.jar"/>
 		</javaresource>
