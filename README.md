@@ -1,6 +1,30 @@
 # URL-Fingerprinter
 An ant + Java build tool for URL Fingerprinting / forever caching static resources.
 
+## Example
+Turns this:
+```html
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="resources/css/mycss.css"/>
+		<script type="text/javascript" src="myclasses.js"></script>
+	</head>
+	<body>
+	</body>
+</html>
+```
+into this:
+```html
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="resources/css/239rmfhr93483h883893892fh238904t-mycss.css"/>
+		<script type="text/javascript" src="0keie84i3j4irkej43u4u4jgj4ui4i33-myclasses.js"></script>
+	</head>
+	<body>
+	</body>
+</html>
+```
+
 ## Tool Function
 Implements URL Fingerprinting as described here: <br>
 Optimize caching: <br>
