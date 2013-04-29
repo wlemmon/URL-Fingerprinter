@@ -13,9 +13,6 @@ Current Extent of reference renaming: <br>
 JS, CSS, HTML.
 Please contribute.
 
-## Tool Details
-An ant tool + Java class
-
 ## Usage
 
 DISTRIBUTING:
