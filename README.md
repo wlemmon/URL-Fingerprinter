@@ -1,7 +1,7 @@
 URL-Fingerprinter
 =================
 
-Tool Function
+=Tool Function=
 =================
 Implements URL Fingerprinting as described here: <br>
 Optimize caching: <br>
@@ -14,7 +14,7 @@ Current Extent of reference renaming: <br>
 JS, CSS, HTML.
 Please contribute.
 
-Tool Details
+=Tool Details=
 =================
 An ant tool + Java class
 
