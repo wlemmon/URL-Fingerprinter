@@ -3,14 +3,7 @@ An ant + Java build tool for URL Fingerprinting / forever caching static resourc
 <a href="https://developers.google.com/speed/docs/best-practices/rules_intro">Optimize caching<a>
 
 <br>
-Input: A Tomcat WAR's resources <br>
-Output: Cacheable forever resources by browsers. An MD5 hash is put in the filenames and references. <br>
-
-<br>
 <b>Works on JS, CSS, and HTML.</b>
-
-
-
 
 
 ## Example
@@ -44,7 +37,6 @@ ant run-fullbuild
 
 ## Usage
 
-DISTRIBUTING:
 After building, the directory "build" will contain a jar for classes and a jar for sources. Copy these jars into your BlueCloud webapp's lib/build and lib/src directories, respectively.
 URL-Fingerprinter.jar
 URL-Fingerprinter-src.jar
@@ -53,6 +45,10 @@ Copy all BCAnt lib/main files into your project's lib/build directory:
 ant.jar
 commons-io-2.4.jar
 rhino1_7R4.jar
+
+The tool inputs and outputs are defined as follows:<br>
+Input: A Tomcat WAR's resources <br>
+Output: Cacheable forever resources by browsers. An MD5 hash is put in the filenames and references. <br>
 
 From your projects build.xml file, you can include any of the ant macros. The below example will locate the URL-Fingerprinter macro from the URL-Fingerprinter.jar file.
 
