@@ -1,14 +1,17 @@
 # URL-Fingerprinter
-An ant + Java build tool for URL Fingerprinting / forever caching static resources.<br>
-<br>
-<b>Works on JS, CSS, and HTML.</b>
-
-Implements URL Fingerprinting as described by Google: 
+An ant + Java build tool for URL Fingerprinting / forever caching static resources. Implements URL Fingerprinting as described by Google: 
 <a href="https://developers.google.com/speed/docs/best-practices/rules_intro">Optimize caching<a>
 
 <br>
 Input: A Tomcat WAR's resources <br>
 Output: Cacheable forever resources by browsers. An MD5 hash is put in the filenames and references. <br>
+
+<br>
+<b>Works on JS, CSS, and HTML.</b>
+
+
+
+
 
 ## Example
 Turns this:
