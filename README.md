@@ -1,4 +1,6 @@
 # URL-Fingerprinter
+cache resource forever static url fingerprint fingerprinter renamer reference
+
 An ant + Java build tool for URL Fingerprinting / forever caching static resources. Implements URL Fingerprinting as described by Google: 
 <a href="https://developers.google.com/speed/docs/best-practices/caching" target="_blank">Performance Best Practices: Optimize Caching<a>
 
