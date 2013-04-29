@@ -1,5 +1,5 @@
 # URL-Fingerprinter
-cache resource forever static url fingerprint fingerprinter renamer reference
+resource cache forever static url fingerprint cacheable fingerprinter file renamer reference changer html js css
 
 An ant + Java build tool for URL Fingerprinting / forever caching static resources. Implements URL Fingerprinting as described by Google: 
 <a href="https://developers.google.com/speed/docs/best-practices/caching" target="_blank">Performance Best Practices: Optimize Caching<a>
